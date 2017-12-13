@@ -16,7 +16,7 @@ module.exports = async (fetchRequest, url, options) => {
     if (response.status >= 200 && response.status < 300) {
       status = chalk.green(response.status)
     } else if (response.status >= 300 && response.status < 400) {
-      status = chalk.orange(response.status)
+      status = chalk.yellow(response.status)
     } else if (response.status >= 400 && response.status < 500) {
       status = chalk.red.bold(`${response.status} - ${response.statusText}`)
     } else if (response.status >= 500) {
