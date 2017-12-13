@@ -32,7 +32,9 @@ HttpClient.post('http://my-api-remote/post', {
 
 ### API
 
-**HttpClient.get(url, options)**
-**HttpClient.post(url, options)**
-**HttpClient.put(url, options)**
-**HttpClient.delete(url, options)**
+**HttpClient.get(url, options)**  
+**HttpClient.post(url, options)**  
+**HttpClient.put(url, options)**  
+**HttpClient.delete(url, options)**  
+
+The methods GET, POST, PUT and DELETE have the same API as **fetch**. For more informations about the `options` field, check the [fetch reference](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Syntax)
