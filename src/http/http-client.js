@@ -10,19 +10,31 @@ class HttpClient {
   }
 
   get(url, options) {
-    return this.internalLogFetch(url, { method: 'GET', ...options })
+    return this.internalLogFetch(
+      url,
+      Object.assign({}, { method: 'GET' }, options),
+    )
   }
 
   post(url, options) {
-    return this.internalLogFetch(url, { method: 'POST', ...options })
+    return this.internalLogFetch(
+      url,
+      Object.assign({}, { method: 'POST' }, options),
+    )
   }
 
   put(url, options) {
-    return this.internalLogFetch(url, { method: 'PUT', ...options })
+    return this.internalLogFetch(
+      url,
+      Object.assign({}, { method: 'PUT' }, options),
+    )
   }
 
   delete(url, options) {
-    return this.internalLogFetch(url, { method: 'DELETE', ...options })
+    return this.internalLogFetch(
+      url,
+      Object.assign({}, { method: 'DELETE' }, options),
+    )
   }
 
   // Internal function : does a log + a fetch
