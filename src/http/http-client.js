@@ -1,6 +1,10 @@
 const fetch = require('node-fetch')
 
 class HttpClient {
+  constructor(logger) {
+    this.setLogger(logger)
+  }
+
   setLogger(logger) {
     this.logger = logger
   }
