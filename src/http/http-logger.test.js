@@ -42,6 +42,18 @@ describe('HTTP Logger', () => {
     expect(logged.includes('POST')).toBe(true)
   })
 
+  it('should log a 3xx fetch request', async () => {
+    expect.assertions(1)
+    const fakeFetch = new Promise(r =>
+      setTimeout(() => r({ status: 304 }), 100),
+    )
+
+    await logger(fakeFetch, 'test-URL', { method: 'GET' })
+
+    const logged = console.log.mock.calls[0][0]
+    expect(logged.includes(304)).toBe(true)
+  })
+
   it('should log a 4xx fetch request', async () => {
     expect.assertions(2)
     const fakeFetch = new Promise(r =>
@@ -53,6 +65,38 @@ describe('HTTP Logger', () => {
     const logged = console.log.mock.calls[0][0]
     expect(logged.includes(404)).toBe(true)
     expect(logged.includes('Not Found')).toBe(true)
+  })
+
+  it('should log a 5xx fetch request', async () => {
+    expect.assertions(2)
+    const fakeFetch = new Promise(r =>
+      setTimeout(
+        () => r({ status: 500, statusText: 'Internal Server Error' }),
+        100,
+      ),
+    )
+
+    await logger(fakeFetch, 'test-URL', { method: 'GET' })
+
+    const logged = console.log.mock.calls[0][0]
+    expect(logged.includes(500)).toBe(true)
+    expect(logged.includes('Internal Server Error')).toBe(true)
+  })
+
+  it('should log a fetch request with a different HTTP status code', async () => {
+    expect.assertions(2)
+    const fakeFetch = new Promise(r =>
+      setTimeout(
+        () => r({ status: 999, statusText: 'Some weird HTTP status' }),
+        100,
+      ),
+    )
+
+    await logger(fakeFetch, 'test-URL', { method: 'GET' })
+
+    const logged = console.log.mock.calls[0][0]
+    expect(logged.includes('999')).toBe(true)
+    expect(logged.includes('Some weird HTTP status')).toBe(true)
   })
 
   it('should log a network error', async () => {
