@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HTTP Client with logger should log a DELETE request 1`] = `
+Array [
+  Promise {},
+  "URL",
+  Object {
+    "method": "DELETE",
+    "options": "options",
+  },
+]
+`;
+
+exports[`HTTP Client with logger should log a GET request 1`] = `
+Array [
+  Promise {},
+  "URL",
+  Object {
+    "method": "GET",
+    "options": "options",
+  },
+]
+`;
+
+exports[`HTTP Client with logger should log a POST request 1`] = `
+Array [
+  Promise {},
+  "URL",
+  Object {
+    "body": "{\\"hello\\":\\"world\\"}",
+    "method": "POST",
+  },
+]
+`;
+
+exports[`HTTP Client with logger should log a PUT request 1`] = `
+Array [
+  Promise {},
+  "URL",
+  Object {
+    "method": "PUT",
+    "options": "options",
+  },
+]
+`;
+
+exports[`HTTP Client without logger should perform a DELETE request 1`] = `
+Array [
+  "/test/",
+  Object {
+    "method": "DELETE",
+    "options": "options",
+  },
+]
+`;
+
+exports[`HTTP Client without logger should perform a GET request 1`] = `
+Array [
+  "/test/",
+  Object {
+    "method": "GET",
+    "options": "options",
+  },
+]
+`;
+
+exports[`HTTP Client without logger should perform a POST request 1`] = `
+Array [
+  "/test/",
+  Object {
+    "body": "{\\"hello\\":\\"world\\"}",
+    "method": "POST",
+  },
+]
+`;
+
+exports[`HTTP Client without logger should perform a PUT request 1`] = `
+Array [
+  "/test/",
+  Object {
+    "method": "PUT",
+    "options": "options",
+  },
+]
+`;
