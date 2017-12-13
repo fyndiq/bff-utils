@@ -2,6 +2,12 @@
 
 This repository includes some utilities to share accross BFFs
 
+# Installation
+
+Install with NPM
+
+`npm install -S fyndiq-bff-utils`
+
 ## HttpClient
 
 ### Usage
