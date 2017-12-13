@@ -1,0 +1,23 @@
+{
+  "name": "bff-utils",
+  "version": "0.0.1",
+  "description": "Utilities to share accross BFFs",
+  "main": "index.js",
+  "scripts": {
+    "jest": "jest",
+    "test": "jest && eslint"
+  },
+  "author": "Thibaut Remy <thibaut.remy@fyndiq.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-eslint": "^8.0.3",
+    "eslint": "^4.13.1",
+    "eslint-config-fyndiq": "^0.4.3",
+    "jest": "^21.2.1",
+    "prettier": "^1.9.2"
+  },
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "node-fetch": "^1.7.3"
+  }
+}
