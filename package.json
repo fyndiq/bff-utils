@@ -3,6 +3,10 @@
   "version": "0.0.1",
   "description": "Utilities to share accross BFFs",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fyndiq/bff-utils.git"
+  },
   "scripts": {
     "jest": "jest",
     "lint": "eslint --ignore-path .gitignore .",
