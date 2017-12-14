@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`KoaBoom Middleware should re-throw other errors 1`] = `[Error: Hey]`;
+
+exports[`KoaBoom Middleware should throw a ctx error if the error is a Boom Error 1`] = `
+Array [
+  500,
+  "Internal Server Error",
+]
+`;
