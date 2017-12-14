@@ -1,6 +1,6 @@
 {
   "name": "fyndiq-bff-utils",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Utilities to share accross BFFs",
   "main": "index.js",
   "repository": {
