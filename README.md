@@ -22,7 +22,7 @@ Install with NPM
 This HttpClient for Node is based on [node-fetch](https://github.com/bitinn/node-fetch) and includes a built-in logger.
 
 ``` js
-const { HttpClient } = require('bff-utils')
+const { HttpClient } = require('fyndiq-bff-utils')
 
 // Make a GET request and parse the json
 const getData = async () => {
@@ -51,3 +51,17 @@ HttpClient.post('http://my-api-remote/post', {
 **HttpClient.delete(url, options)**  
 
 The methods GET, POST, PUT and DELETE have the same API as **fetch**. For more informations about the `options` field, check the [fetch reference](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Syntax)
+
+Contrary to `fetch`, HttpClient will throw an error if the response status is **4xx** or **5xx**. The error object thrown is a [Boom Error](https://github.com/hapijs/boom). If you are using a [Koa](http://koajs.com/) server, you can use `KoaBoom` exported by `fyndiq-bff-utils` as a middleware:
+
+``` js
+const Koa = require('koa')
+const { KoaBoom } = require('fyndiq-bff-utils')
+
+app = new Koa()
+app.use(KoaBoom())
+
+// rest of your middlewares
+```
+
+Doing so will enable you to forward the HTTP error to the client.
