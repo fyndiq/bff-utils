@@ -41,6 +41,15 @@ HttpClient.post('http://my-api-remote/post', {
     name: 'My name',
   }),
 })
+
+// Handle server errors
+try {
+  await HttpClient.get('http://my-api-remote/some-api-that-might-fail')
+} catch (error) {
+  if (error.output && error.output.statusCode === 500) {
+    // Do something to handle the server error gracefully...
+  }
+}
 ```
 
 ### API
