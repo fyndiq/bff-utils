@@ -64,6 +64,8 @@ Array [
 ]
 `;
 
+exports[`HTTP Client without logger should perform a GET request 2`] = `"/test/"`;
+
 exports[`HTTP Client without logger should perform a POST request 1`] = `
 Array [
   "/test/",
@@ -82,4 +84,32 @@ Array [
     "options": "options",
   },
 ]
+`;
+
+exports[`HTTP Client without logger should throw an error in the case of 4xx error 1`] = `[Error: Not Found]`;
+
+exports[`HTTP Client without logger should throw an error in the case of 4xx error 2`] = `
+Object {
+  "headers": Object {},
+  "payload": Object {
+    "error": "Not Found",
+    "message": "Not Found",
+    "statusCode": 404,
+  },
+  "statusCode": 404,
+}
+`;
+
+exports[`HTTP Client without logger should throw an error in the case of 5xx error 1`] = `[Error: Internal Server Error]`;
+
+exports[`HTTP Client without logger should throw an error in the case of 5xx error 2`] = `
+Object {
+  "headers": Object {},
+  "payload": Object {
+    "error": "Internal Server Error",
+    "message": "An internal server error occurred",
+    "statusCode": 500,
+  },
+  "statusCode": 500,
+}
 `;

@@ -1,6 +1,16 @@
 const fetch = require('node-fetch')
+const Boom = require('boom')
 
 class HttpClient {
+  static checkStatus(response) {
+    const { status, statusText } = response
+
+    // Client or server error
+    if (status >= 400 && status < 600) {
+      throw new Boom(statusText, { statusCode: status })
+    }
+  }
+
   constructor(logger) {
     this.setLogger(logger)
   }
@@ -10,41 +20,44 @@ class HttpClient {
   }
 
   get(url, options) {
-    return this.internalLogFetch(
+    return this.performRequest(
       url,
       Object.assign({}, { method: 'GET' }, options),
     )
   }
 
   post(url, options) {
-    return this.internalLogFetch(
+    return this.performRequest(
       url,
       Object.assign({}, { method: 'POST' }, options),
     )
   }
 
   put(url, options) {
-    return this.internalLogFetch(
+    return this.performRequest(
       url,
       Object.assign({}, { method: 'PUT' }, options),
     )
   }
 
   delete(url, options) {
-    return this.internalLogFetch(
+    return this.performRequest(
       url,
       Object.assign({}, { method: 'DELETE' }, options),
     )
   }
 
-  // Internal function : does a log + a fetch
-  internalLogFetch(url, options) {
-    // Do not log the request if the logger has not been defined
-    if (!this.logger) {
-      return fetch(url, options)
+  async performRequest(url, options) {
+    const fetchRequest = fetch(url, options)
+
+    if (this.logger) {
+      this.logger(fetchRequest, url, options)
     }
 
-    return this.logger(fetch(url, options), url, options)
+    const response = await fetchRequest
+    HttpClient.checkStatus(response)
+
+    return response
   }
 }
 

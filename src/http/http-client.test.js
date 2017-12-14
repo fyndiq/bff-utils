@@ -14,11 +14,14 @@ describe('HTTP Client', () => {
     })
 
     it('should perform a GET request', async () => {
-      expect.assertions(3)
+      expect.assertions(4)
       const response = await client.get('/test/', { options: 'options' })
       expect(response).toBe('OK')
       expect(fetch).toHaveBeenCalled()
       expect(fetch.mock.calls[0]).toMatchSnapshot()
+
+      const argument = await fetch.mock.calls[0][0]
+      expect(argument).toMatchSnapshot()
     })
 
     it('should perform a POST request', async () => {
@@ -45,6 +48,32 @@ describe('HTTP Client', () => {
       expect(response).toBe('OK')
       expect(fetch).toHaveBeenCalled()
       expect(fetch.mock.calls[0]).toMatchSnapshot()
+    })
+
+    it('should throw an error in the case of 4xx error', async () => {
+      expect.assertions(2)
+      fetch.mockImplementationOnce(() =>
+        Promise.resolve({ status: 404, statusText: 'Not Found' }),
+      )
+
+      try {
+        await client.get('/my-api/')
+      } catch (error) {
+        expect(error).toMatchSnapshot()
+        expect(error.output).toMatchSnapshot()
+      }
+    })
+
+    it('should throw an error in the case of 5xx error', async () => {
+      expect.assertions(2)
+      fetch.mockImplementationOnce(() => Promise.resolve({ status: 500 }))
+
+      try {
+        await client.get('/my-api/')
+      } catch (error) {
+        expect(error).toMatchSnapshot()
+        expect(error.output).toMatchSnapshot()
+      }
     })
   })
 
