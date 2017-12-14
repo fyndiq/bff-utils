@@ -5,6 +5,7 @@ describe('KoaBoom Middleware', () => {
   const middleware = KoaBoom()
 
   it('should throw a ctx error if the error is a Boom Error', async () => {
+    expect.assertions(2)
     const ctx = { throw: jest.fn() }
     const next = () =>
       new Promise(() => {
@@ -16,10 +17,11 @@ describe('KoaBoom Middleware', () => {
   })
 
   it('should re-throw other errors', async () => {
+    expect.assertions(1)
     const next = () =>
       new Promise(() => {
         throw new Error('Hey')
       })
-    expect(middleware({}, next)).rejects.toMatchSnapshot()
+    await expect(middleware({}, next)).rejects.toMatchSnapshot()
   })
 })
