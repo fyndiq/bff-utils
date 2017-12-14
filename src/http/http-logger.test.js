@@ -23,7 +23,7 @@ describe('HTTP Logger', () => {
     await logger(fakeFetch, 'test-URL', { method: 'GET' })
 
     const logged = console.log.mock.calls[0][0]
-    expect(logged.includes('http client')).toBe(true)
+    expect(logged.includes('HttpClient')).toBe(true)
     expect(logged.includes('GET')).toBe(true)
     expect(logged.includes('test-URL')).toBe(true)
     expect(logged.includes(200)).toBe(true)

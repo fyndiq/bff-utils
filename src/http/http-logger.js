@@ -2,7 +2,7 @@ const chalk = require('chalk')
 
 module.exports = async (fetchRequest, url, options) => {
   const start = Date.now()
-  const prefix = chalk.cyan('  ⋅  http client ⋅')
+  const prefix = chalk.cyan('  HttpClient')
   const method = chalk.bold(options.method)
 
   try {
@@ -30,11 +30,10 @@ module.exports = async (fetchRequest, url, options) => {
     // Log everything
     console.log(`${prefix} ${method} ${chalk.gray(url)} ${status} ${time}`)
   } catch (err) {
+    // Network error
     const name = chalk.bold.red(err.name)
     const code = chalk.red(err.code)
 
     console.log(`${prefix} ${method} ${chalk.gray(url)} ${name} ${code}`)
   }
-
-  return fetchRequest
 }
