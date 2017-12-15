@@ -2,7 +2,7 @@
 
 # BFF utils
 
-[![npm](https://img.shields.io/npm/v/fyndiq-bff-utils.svg?style=flat-square)](https://www.npmjs.com/package/fyndiq-bff-utils) [![Build Status](https://travis-ci.org/fyndiq/bff-utils.svg?branch=master)](https://travis-ci.org/fyndiq/bff-utils)
+[![npm](https://img.shields.io/npm/v/fyndiq-bff-utils.svg?style=flat-square)](https://www.npmjs.com/package/fyndiq-bff-utils) [![Travis](https://img.shields.io/travis/fyndiq/bff-utils.svg?style=flat-square)]()
 
 This repository includes some utilities to share accross BFFs
 
