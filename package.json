@@ -26,5 +26,10 @@
     "boom": "^7.1.1",
     "chalk": "^2.3.0",
     "node-fetch": "^1.7.3"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   }
 }
