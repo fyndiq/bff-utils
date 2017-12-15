@@ -10,12 +10,13 @@
   "scripts": {
     "jest": "jest",
     "lint": "eslint --ignore-path .gitignore .",
-    "test": "jest && npm run lint"
+    "test": "npm run lint && jest --coverage && coverage"
   },
   "author": "Thibaut Remy <thibaut.remy@fyndiq.com>",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "^8.0.3",
+    "codecov": "^3.0.0",
     "eslint": "^4.13.1",
     "eslint-config-fyndiq": "^0.4.3",
     "jest": "^21.2.1",
