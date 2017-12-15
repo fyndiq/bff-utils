@@ -10,7 +10,7 @@
   "scripts": {
     "jest": "jest",
     "lint": "eslint --ignore-path .gitignore .",
-    "test": "npm run lint && jest --coverage && coverage"
+    "test": "npm run lint && jest --coverage && codecov"
   },
   "author": "Thibaut Remy <thibaut.remy@fyndiq.com>",
   "license": "MIT",
