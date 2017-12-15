@@ -2,7 +2,7 @@
 
 # BFF utils
 
-[![npm](https://img.shields.io/npm/v/fyndiq-bff-utils.svg?style=flat-square)](https://www.npmjs.com/package/fyndiq-bff-utils) [![Travis](https://img.shields.io/travis/fyndiq/bff-utils.svg?style=flat-square)](https://travis-ci.org/fyndiq/bff-utils) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+[![npm](https://img.shields.io/npm/v/fyndiq-bff-utils.svg?style=flat-square)](https://www.npmjs.com/package/fyndiq-bff-utils) [![Travis](https://img.shields.io/travis/fyndiq/bff-utils.svg?style=flat-square)](https://travis-ci.org/fyndiq/bff-utils) [![Codecov](https://img.shields.io/codecov/c/github/fyndiq/bff-utils.svg)](https://codecov.io/gh/fyndiq/bff-utils) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 This repository includes some utilities to share accross BFFs
 
