@@ -7,7 +7,7 @@ class HttpClient {
 
     // Client or server error
     if (status >= 400 && status < 600) {
-      throw new Boom(statusText, { statusCode: status })
+      throw new Boom(statusText, { statusCode: status, data: { response } })
     }
   }
 
